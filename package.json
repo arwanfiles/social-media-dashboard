@@ -1,6 +1,8 @@
 {
   "name": "social-media-dashboard",
+  "description": "Dashboard untuk menampilkan aktivitas social media",
   "version": "0.1.0",
+  "author": "Arwani <arwanfiles@gmail.com> (https://arwanfiles.github.io)",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -13,10 +15,16 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "run-p watch:tailwind dev",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint:script": "eslint ."
+    "dev": "react-scripts start",
+    "prebuild": "NODE_ENV=production run-s build:tailwind",
+    "build:tailwind": "postcss src/styles.css -o src/styles.output.css",
+    "watch:tailwind": "chokidar 'src/**/*.css' --ignore src/styles.output.css -c 'npm run build:tailwind'",
+    "lint:script": "eslint './src/**/*.{js,jsx}'",
+    "lint:style": "stylelint './src/**/*.css'",
+    "lint": "npm run lint:script && npm run lint:style"
   },
   "eslintConfig": {
     "extends": [
@@ -37,6 +45,8 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.3.4",
+    "chokidar-cli": "^3.0.0",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.24.2",
@@ -44,6 +54,13 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.25.2",
-    "husky": "^7.0.2"
+    "husky": "^7.0.2",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "tailwindcss": "^2.2.15"
   }
 }
