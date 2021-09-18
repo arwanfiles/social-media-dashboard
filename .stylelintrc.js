@@ -3,6 +3,11 @@ module.exports = {
     ignoreFiles: ["./src/styles.output.css"],
     rules: {
         indentation: 4,
-        'at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind'] }]
+        'block-no-empty': [false],
+        'rule-empty-line-before': ['always-multi-line', {
+            except: ['after-rule'],
+            ignore: ['after-comment', 'inside-block']
+        }],
+        'at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind', 'screen'] }]
     }
 };

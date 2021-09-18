@@ -1,8 +1,8 @@
 const Header = () => {
     return (
-        <div>
-
-        </div>
+        <header className="header text-base">
+            Header
+        </header>
     );
 };
 
