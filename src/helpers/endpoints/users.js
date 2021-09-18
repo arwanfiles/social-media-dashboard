@@ -1,9 +1,8 @@
-import { get, post, put, destroy } from 'helpers/api';
+import { get } from 'helpers/api';
 
 export const User = {
     index: () => get('/users'),
-    create: (body) => post('/users', body),
     show: (id) => get(`/users/${id}`),
-    edit: (id, body) => put(`/users/${id}`, body),
-    delete: (id, body) => destroy(`/users/${id}`)
+    posts: (id) => get(`/users/${id}/posts`),
+    albums: (id) => get(`/users/${id}/albums`)
 };

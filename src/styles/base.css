@@ -14,7 +14,7 @@ body {
     @apply grid h-screen;
 
     grid-template-columns: 0 minmax(0, 1fr);
-    grid-template-rows: 60px 1fr 50px;
+    grid-template-rows: 0 1fr 50px;
     grid-template-areas:
         'sidebar header'
         'sidebar main'
@@ -23,7 +23,7 @@ body {
 .header {
     @apply bg-blue-200 fixed top-0 right-0;
 
-    height: 60px;
+    height: 0;
     left: 0;
     grid-area: header;
     z-index: 999;
@@ -58,11 +58,11 @@ body.with-full-main-content .main { @apply px-0 pt-0 bg-blue-100; }
 @screen md {
     .dashboard-container {
         grid-template-columns: 70px minmax(0, 1fr);
-        grid-template-rows: 70px 1fr 50px;
+        grid-template-rows: 0 1fr 50px;
     }
     .header {
         left: 70px;
-        height: 70px;
+        height: 0;
     }
     .sidebar {
         @apply left-0;
