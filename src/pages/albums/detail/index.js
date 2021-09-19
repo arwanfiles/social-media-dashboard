@@ -32,8 +32,15 @@ const PageAlbumDetail = () => {
 
     return (
         <div>
-            <div>
-                {detail?.data?.title}
+            <div className="flex gap-8 justify-between mb-5 border-b border-gray-200 pb-3">
+                <div>
+                    <div className="uppercase font-bold text-gray-300 text-sm mb-2">Album Title</div>
+                    <div className="font-bold text-xl capitalize">{detail?.data?.title}</div>
+                </div>
+                <div className="text-right">
+                    <div className="uppercase font-bold text-gray-300 text-sm mb-2">Total Photos</div>
+                    <div className="font-bold text-5xl">{photos?.data.length}</div>
+                </div>
             </div>
 
             <div>

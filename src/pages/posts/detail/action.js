@@ -20,6 +20,18 @@ export const getDetail = async (post_id) => {
         });
 };
 
+export const updatePost = async (post_id, body) => {
+    /*
+    Hit api update post item.
+    */
+    Post.edit(post_id, body)
+        .then((res) => {
+            store.dispatch(PostDetailReducer.actions.updateData(res));
+        })
+        .catch(() => {})
+        .finally(() => {});
+};
+
 export const getComments = async (post_id) => {
     /*
     Hit api post comments.
@@ -44,6 +56,18 @@ export const addComment = async (body) => {
     Comment.create(body)
         .then((res) => {
             store.dispatch(PostCommentsReducer.actions.addItem(res));
+        })
+        .catch(() => {})
+        .finally(() => {});
+};
+
+export const updateComment = async (id, body) => {
+    /*
+    Hit api update comment item.
+    */
+    Comment.edit(id, body)
+        .then((res) => {
+            store.dispatch(PostCommentsReducer.actions.updateItem(res));
         })
         .catch(() => {})
         .finally(() => {});

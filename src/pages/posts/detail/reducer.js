@@ -21,6 +21,10 @@ export const PostDetailReducer = createSlice({
         setData: (state, action) => ({
             ...state,
             data: action.payload
+        }),
+        updateData: (state, action) => ({
+            ...state,
+            data: action.payload
         })
     }
 });
@@ -40,6 +44,13 @@ export const PostCommentsReducer = createSlice({
         addItem: (state, action) => ({
             ...state,
             data: [action.payload].concat(state.data) // Insert to first index
+        }),
+        updateItem: (state, action) => ({
+            ...state,
+            data: state.data.map(el => {
+                if (el.id === action.payload.id) return Object.assign({}, action.payload);
+                return el;
+            })
         }),
         deleteItem: (state, action) => ({
             ...state,

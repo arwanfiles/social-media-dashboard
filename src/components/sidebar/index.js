@@ -1,33 +1,23 @@
 import { Link } from 'react-router-dom';
+import { generateAvatar } from 'helpers/image';
 
 const Sidebar = () => {
     return (
         <aside className="sidebar">
-            <div className="sidebar-brand px-4 py-8">
-                <div className="flex items-center">
-                    <img
-                        className="sidebar-brand-icon"
-                        src={`${process.env.PUBLIC_URL}/assets/img/logo_icon-white.svg`}
-                        alt=""
-                    />
-                    <div className="sidebar-brand-text">Social Media</div>
+            <div className="text-center py-8">
+                <div className="inline-block bg-white rounded-full shadow-2xl">
+                    {generateAvatar('arwani', 120, 120)}
+                </div>
+                <div className="text-white pt-3 pb-8">
+                    <div className="font-bold text-xl">Arwani</div>
+                    <div className=" text-blue-400">@arwanfiles</div>
+                </div>
+                <div className="px-5">
+                    <Link className="block border border-white w-full py-3 rounded text-white hover:bg-white hover:text-blue-700" to="/dashboard">
+                        Dashboard
+                    </Link>
                 </div>
             </div>
-            <ul className="sidebar-nav">
-                <li className="nav-item">
-                    <Link className="nav-link" to="/dashboard"><span className="nav-text">Dashboard</span></Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/posts"><span className="nav-text">Posts</span></Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/albums"><span className="nav-text">Albums</span></Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/users"><span className="nav-text">Users</span></Link>
-                </li>
-            </ul>
-
         </aside>
     );
 };

@@ -34,7 +34,18 @@ const post = (url, data) => {
         .then(prepareResponse);
 };
 
-const put = (url, data) => {};
+const put = (url, data) => {
+    return fetch(`${BASE_URL}${url}`, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        }
+    })
+        .then(getResponse)
+        .then(checkResponse)
+        .then(prepareResponse);
+};
 
 const destroy = (url) => {
     return fetch(`${BASE_URL}${url}`, {
