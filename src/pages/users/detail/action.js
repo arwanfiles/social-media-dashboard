@@ -1,4 +1,5 @@
 import { User } from 'helpers/endpoints/users';
+import { Post } from 'helpers/endpoints/posts';
 import { store } from 'services/store';
 import { UserDetailReducer, UserPostsReducer, UserAlbumsReducer } from './reducer';
 
@@ -51,4 +52,16 @@ export const getAlbums = async (id) => {
         .finally(() => {
             store.dispatch(UserAlbumsReducer.actions.setLoading(false));
         });
+};
+
+export const deletePost = async (id) => {
+    /*
+    Hit api delete post.
+    */
+    Post.delete(id)
+        .then(() => {
+            store.dispatch(UserPostsReducer.actions.deleteItem(id));
+        })
+        .catch(() => {})
+        .finally(() => {});
 };

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiMessageCircle, FiShare2, FiMoreVertical, FiEye } from 'react-icons/fi';
+import { FiMessageCircle, FiShare2, FiMoreVertical, FiEye, FiTrash } from 'react-icons/fi';
 import { useClickOutside } from 'helpers/hooks/clickoutside';
 import { generateAvatar } from 'helpers/image';
+import { deletePost } from 'pages/users/detail/action';
 
 const PostItem = ({ item, profile }) => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -24,11 +25,15 @@ const PostItem = ({ item, profile }) => {
                     <div className="rounded-full bg-gray-100 p-2" onClick={() => setDropdownOpen(!isDropdownOpen)}>
                         <FiMoreVertical className="text-xl" />
                     </div>
-                    <div className={`absolute top-full right-0 border border-gray-300 rounded w-40 shadow bg-white ${isDropdownOpen ? '' : 'hidden'}`} ref={innerBorderRef}>
-                        <Link to={`/posts/${item.id}`} className="inline-flex items-center px-3 py-2">
+                    <div className={`absolute top-full right-0 border border-gray-300 rounded w-40 py-1 shadow bg-white ${isDropdownOpen ? '' : 'hidden'}`} ref={innerBorderRef}>
+                        <Link to={`/posts/${item.id}`} className="inline-flex items-center px-3 py-1 text-gray-600 hover:text-blue-700 hover:bg-gray-100 w-full">
                             <FiEye className="mr-2" />
                             Show Post
                         </Link>
+                        <button type="button" onClick={() => deletePost(item.id)} className="inline-flex items-center px-3 py-1 text-gray-600 hover:text-blue-700 hover:bg-gray-100 w-full">
+                            <FiTrash className="mr-2" />
+                            Delete
+                        </button>
                     </div>
                 </div>
             </div>

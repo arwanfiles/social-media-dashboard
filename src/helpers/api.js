@@ -21,10 +21,28 @@ const get = (url) => {
         .then(prepareResponse);
 };
 
-const post = (url, data) => {};
+const post = (url, data) => {
+    return fetch(`${BASE_URL}${url}`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        }
+    })
+        .then(getResponse)
+        .then(checkResponse)
+        .then(prepareResponse);
+};
 
 const put = (url, data) => {};
 
-const destroy = (url) => {};
+const destroy = (url) => {
+    return fetch(`${BASE_URL}${url}`, {
+        method: 'DELETE'
+    })
+        .then(getResponse)
+        .then(checkResponse)
+        .then(prepareResponse);
+};
 
 export { get, post, put, destroy };

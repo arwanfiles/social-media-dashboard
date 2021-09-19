@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import DataTable from 'react-data-table-component';
+import PostCreate from 'components/widgets/posts/create';
 import { generateAvatar } from 'helpers/image';
 import { getData } from './action';
 
@@ -57,20 +58,7 @@ const PageUsers = () => {
                 </div>
             </div>
             <div className="w-5/12">
-                <div className="p-8 shadow-2xl rounded-lg">
-                    <div className="font-bold text-2xl text-gray-700 mb-5">Create New Post</div>
-                    <form className="">
-                        <div className="mb-3">
-                            <input name="title" className="w-full border border-gray-300 rounded-lg px-5 py-4" placeholder="Title" />
-                        </div>
-                        <div className="mb-3">
-                            <textarea name="body" className="w-full border border-gray-300 rounded-lg px-5 py-4" placeholder="Description..."></textarea>
-                        </div>
-                        <button type="submit" className="w-full rounded-lg bg-blue-700 hover:bg-blue-900 text-white p-4 uppercase">
-                            Add Post
-                        </button>
-                    </form>
-                </div>
+                <PostCreate />
             </div>
         </div>
     );

@@ -41,6 +41,10 @@ export const UserPostsReducer = createSlice({
         setData: (state, action) => ({
             ...state,
             data: action.payload
+        }),
+        deleteItem: (state, action) => ({
+            ...state,
+            data: state.data.filter(el => el.id !== Number(action.payload))
         })
     }
 });

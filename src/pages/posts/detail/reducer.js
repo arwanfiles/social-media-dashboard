@@ -36,6 +36,14 @@ export const PostCommentsReducer = createSlice({
         setData: (state, action) => ({
             ...state,
             data: action.payload
+        }),
+        addItem: (state, action) => ({
+            ...state,
+            data: [action.payload].concat(state.data) // Insert to first index
+        }),
+        deleteItem: (state, action) => ({
+            ...state,
+            data: state.data.filter(el => el.id !== Number(action.payload))
         })
     }
 });

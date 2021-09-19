@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 
 import LayoutAuthenticated from 'layouts/authenticated';
 
-import PageDashboard from 'pages/dashboard';
 import PagePosts from 'pages/posts';
 import PagePostDetail from 'pages/posts/detail';
 import PageAlbums from 'pages/albums';
@@ -15,7 +14,7 @@ import PageUserDetail from 'pages/users/detail';
 
 const Routes = () => (
     <Switch>
-        <Route path="/dashboard" component={PageDashboard} />
+        <Route path="/dashboard" component={PageUsers} />
         <Route path="/posts/:id" component={PagePostDetail} />
         <Route path="/posts" component={PagePosts} />
         <Route path="/albums/:id" component={PageAlbumDetail} />
