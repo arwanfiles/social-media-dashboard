@@ -1,5 +1,5 @@
 /* Sidebar */
-.sidebar { z-index: 1200; }
+.sidebar { z-index: 999; }
 .sidebar.mobile-sidebar-opened { left: 0; }
 .sidebar-mobile-button {
     @apply fixed top-0 left-0 px-6 text-xl;
