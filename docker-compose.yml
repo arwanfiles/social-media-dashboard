@@ -1,0 +1,9 @@
+version: '2.0'
+services:
+    social-media-dashboard:
+        build:
+            context: .
+        ports:
+            - "3000:80"
+        container_name: social-media-dashboard
+        stdin_open: true
