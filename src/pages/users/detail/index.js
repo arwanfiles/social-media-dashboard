@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import PostItem from 'components/widgets/posts/item';
 import AlbumItem from 'components/widgets/albums/item';
-import { generateAvatar } from 'helpers/avatar';
+import { generateAvatar } from 'helpers/image';
 import { getDetail, getPosts, getAlbums } from './action';
 
 const PageUserDetail = () => {
@@ -33,17 +33,23 @@ const PageUserDetail = () => {
             </div>
 
             <div className="flex gap-8">
-                <div className="rounded-lg w-1/2">
+                <div className="w-7/12">
+                    <div className="pt-8">
+                        <div className=" font-bold text-lg text-gray-500 mb-6 pb-3 border-b border-gray-200">Recent Posts</div>
+                    </div>
                     {posts?.data.map((el) => (
                         <PostItem key={el.id} profile={detail?.data} item={el} />
                     ))}
                 </div>
 
-                <div className="w-1/2">
+                <div className="w-5/12">
                     <div className="shadow-2xl rounded-lg p-8">
-                        {albums?.data.map((el) => (
-                            <AlbumItem key={el.id} item={el} />
-                        ))}
+                        <div className=" font-bold text-lg text-gray-500 mb-6 pb-3 border-b border-gray-200">{`${detail?.data?.username}'s Albums`}</div>
+                        <div className="grid grid-cols-2 gap-8">
+                            {albums?.data.map((el) => (
+                                <AlbumItem key={el.id} item={el} />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

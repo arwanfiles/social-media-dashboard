@@ -9,6 +9,7 @@ import PageDashboard from 'pages/dashboard';
 import PagePosts from 'pages/posts';
 import PagePostDetail from 'pages/posts/detail';
 import PageAlbums from 'pages/albums';
+import PageAlbumDetail from 'pages/albums/detail';
 import PageUsers from 'pages/users';
 import PageUserDetail from 'pages/users/detail';
 
@@ -17,6 +18,7 @@ const Routes = () => (
         <Route path="/dashboard" component={PageDashboard} />
         <Route path="/posts/:id" component={PagePostDetail} />
         <Route path="/posts" component={PagePosts} />
+        <Route path="/albums/:id" component={PageAlbumDetail} />
         <Route path="/albums" component={PageAlbums} />
         <Route path="/users/:id" component={PageUserDetail} />
         <Route path="/users" component={PageUsers} />

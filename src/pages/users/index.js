@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import DataTable from 'react-data-table-component';
-import { generateAvatar } from 'helpers/avatar';
+import { generateAvatar } from 'helpers/image';
 import { getData } from './action';
 
 const columns = [
